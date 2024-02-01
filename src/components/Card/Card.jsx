@@ -25,22 +25,15 @@ case "album" : {
 <div className={styles.titleWrapper}>
 
 <p>{title}</p>
-
 </div> 
-   </div>
-      
-      
-      
-      
-      
-      
+   </div> 
       </Tooltip>
-
-
-
-
     )
 }  
+
+
+
+
 default:
     return <></>
 
