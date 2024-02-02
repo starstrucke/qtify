@@ -3,7 +3,10 @@ import styles from './Section.module.css';
 import { CircularProgress } from '@mui/material';
 import Card from '../Card/Card'
 import Carosuel from '../Carosuel/Carosuel';
-const Section = ({data,title,type}) => {
+import BasicTabs from '../Tabs/Tabs';
+const Section = ({data,title,type,value=0,handleChange=null}) => {
+   console.log(data)
+    
     const [carouselToggle,setCarosuelToggle]=useState(true)
 
     const handleToggle=()=>{
@@ -23,12 +26,12 @@ const Section = ({data,title,type}) => {
     </h4>
 
     </div>
- 
- {
-  data.length === 0 ? (
+ {type==="songs"?<BasicTabs value={value} handleChange={handleChange}/>:null}
+ {data.length === 0 ? (
   <CircularProgress/>
  
-  ):(
+  ):( 
+     
      <div className={styles.cardsWrapper}>{ !carouselToggle ?
           (<div className={styles.wrapper}>{data.map((ele) => (
              <Card data={ele} type={type} />

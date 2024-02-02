@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tooltip,Chip } from '@mui/material';
 import styles from './Card.module.css';
+import BasicTabs from '../Tabs/Tabs'
 const Card = ({data,type}) => {
 
 const getCard=(type)=>{
@@ -28,11 +29,31 @@ case "album" : {
 </div> 
    </div> 
       </Tooltip>
-    )
+    );
 }  
+ case "songs":{
+  const {image,likes,title}= data;
+  return(
+  
+<div className={styles.wrapper}>
 
+<div className={styles.card}>
 
+<img src={image} alt="song"/>
+<div className={styles.banner}>
+<div className={styles.pill}>
+<p>{likes}Likes</p>
+</div>
+</div>
+</div>
+<div className={styles.titleWrapper}>
+<p>{title}</p>
+</div>
+</div>
 
+  )
+
+ }
 
 default:
     return <></>
